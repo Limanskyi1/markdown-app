@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+.right {
+  flex: 1;
+}
+.main {
+  height: 100%;
+  position: relative;
+}

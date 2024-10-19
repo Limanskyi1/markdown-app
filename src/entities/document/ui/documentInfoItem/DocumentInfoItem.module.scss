@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  gap: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  span {
+    font-family: var(--font-family-2);
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--500);
+  }
+  input {
+    font-family: var(--font-family-2);
+    font-size: clamp(13px, 1.4vw, 15x);
+    color: var(--100);
+    background: transparent;
+  }
+}

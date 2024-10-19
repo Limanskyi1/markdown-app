@@ -1,0 +1,15 @@
+.markdown {
+  border-right: 1px solid var(--300);
+  height: 100%;
+}
+.textarea {
+  padding: 10px 16px;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family-3);
+  font-size: clamp(13px, 1.3vw, 14px);
+  line-height: 171%;
+  color: var(--700);
+  white-space: pre-wrap;
+}

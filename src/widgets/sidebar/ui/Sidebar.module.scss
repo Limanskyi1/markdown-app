@@ -1,0 +1,19 @@
+.sidebar {
+  max-width: var(--sidebar-width);
+  margin-left: 0;
+  width: 100%;
+  background: var(--900);
+  transition: 0.4s ease-in-out;
+  padding: clamp(18px, 2.1vw, 24px);
+}
+
+.closed {
+  margin-left: calc(-1 * var(--sidebar-width));
+}
+.title {
+  font-weight: 500;
+  color: var(--500);
+  font-family: var(--font-family-2);
+  letter-spacing: 0.14em;
+  font-size: clamp(13px, 1.3vw, 14px);
+}
