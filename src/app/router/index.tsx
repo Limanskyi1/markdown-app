@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { DocumentPage } from "@/pages/document";
 import { HomePage } from "@/pages/home";
 
 import { RootLayout } from "../layouts/rootLayout";
@@ -12,6 +13,10 @@ const routes = [
       {
         path: "",
         element: <HomePage />,
+      },
+      {
+        path: "/document/:id",
+        element: <DocumentPage />,
       },
     ],
   },

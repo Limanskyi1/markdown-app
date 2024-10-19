@@ -4,7 +4,7 @@ import styles from "./DocumentInfoItem.module.scss";
 
 interface DocumentInfoItemProps {
   title: string;
-  setTitle: (value: string) => void;
+  setTitle?: (value: string) => void;
   className?: string;
   disabled?: boolean;
 }
@@ -24,7 +24,7 @@ export const DocumentInfoItem = (props: DocumentInfoItemProps) => {
         <input
           disabled={disabled}
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={setTitle ? (e) => setTitle(e.target.value): undefined}
         />
       </div>
     </div>

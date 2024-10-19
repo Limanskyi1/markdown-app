@@ -11,6 +11,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    exclude: ["inspector"],
+  },
   css: {
     preprocessorOptions: {
       scss: {

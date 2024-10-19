@@ -1,14 +1,13 @@
 import { Editor } from "@/features/markup";
-import { Button } from "@/shared/ui/button";
 
-import { useHomePage } from "../model/useHomePage";
-import styles from "./HomePage.module.scss";
+import { useHomePage } from "../../model/useHomePage";
+import { EmptyHomePage } from "../emptyHomePage/EmptyHomePage";
 
 export const HomePage = () => {
   const { introDocMarkup, editIntroDoc } = useHomePage();
 
   if (!introDocMarkup) {
-    return <Button className={styles.button}>+ New Document</Button>;
+    return <EmptyHomePage />;
   }
 
   return <Editor markup={introDocMarkup} setMarkup={editIntroDoc} />;

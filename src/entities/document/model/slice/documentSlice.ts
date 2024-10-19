@@ -1,5 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+import { unescapeStringFromJson } from "@/shared/utils/unescapeStringFromJson";
+
 import { IDocument } from "../types/types";
 
 type TypeMode = "intro" | "main";
@@ -25,19 +27,22 @@ export const documentSlice = createSlice({
   initialState,
   reducers: {
     setDocument: (state, action: PayloadAction<IDocument>) => {
+      const { id, title, markup } = action.payload;
       state.document = {
-        ...action.payload,
+        id,
+        title,
+        markup: unescapeStringFromJson(markup),
       };
     },
     changeMarkup: (state, action: PayloadAction<string>) => {
-      if(!state.document) return;
+      if (!state.document) return;
       state.document = {
         ...state.document,
         markup: action.payload,
       };
     },
     changeName: (state, action: PayloadAction<string>) => {
-      if(!state.document) return;
+      if (!state.document) return;
       state.document = {
         ...state.document,
         title: action.payload,

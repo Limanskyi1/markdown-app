@@ -7,10 +7,17 @@ const api = docsApi.injectEndpoints({
     getAllDocuments: build.query<IDocument[], void>({
       query: () => "/documents",
     }),
-    getPreviewDocument: build.query<IDocument, void>({
-      query: () => "/documents-preview/1",
+    getDocument: build.query<IDocument, number>({
+      query: (id) => `/documents/${id}`,
+    }),
+    createDocument: build.mutation<IDocument, Partial<IDocument>>({
+      query: (newDocument) => ({
+        url: "/documents",
+        method: "POST",
+        body: newDocument,
+      }),
     }),
   }),
 });
 
-export const { useGetAllDocumentsQuery, useGetPreviewDocumentQuery } = api;
+export const { useGetAllDocumentsQuery,useGetDocumentQuery , useCreateDocumentMutation } = api;

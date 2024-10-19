@@ -37,3 +37,8 @@ export const introductionDoc = {
   title: "welcome",
   markup: markdownIntroduction,
 };
+
+export const newDocument = {
+  title: "untitled-document",
+  markup: "",
+}
