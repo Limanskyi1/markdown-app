@@ -10,12 +10,12 @@
     font-family: var(--font-family-2);
     font-weight: 300;
     font-size: 13px;
-    color: var(--500);
+    color: var(--heading-color);
   }
   input {
     font-family: var(--font-family-2);
     font-size: clamp(13px, 1.4vw, 15x);
-    color: var(--100);
+    color: var(--text-color);
     background: transparent;
   }
 }

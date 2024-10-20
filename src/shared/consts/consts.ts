@@ -27,7 +27,7 @@ You can see examples of ordered and unordered lists above.
 ###### Code Blocks
 
 You can see examples of code blocks above. 
-\`\`\`
+\`\`\`js
 123
 \`\`\`
 `;

@@ -1,4 +1,4 @@
-import { Editor } from "@/features/markup";
+import { Editor } from "@/features/editor";
 
 import { useHomePage } from "../../model/useHomePage";
 import { EmptyHomePage } from "../emptyHomePage/EmptyHomePage";

@@ -1,0 +1,80 @@
+.previewContent {
+  padding: 10px 16px;
+  white-space: pre-wrap;
+  height: 100%;
+  background-color: var(--main-bg-color);
+  transition: background-color 0.3s ease-in;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-1);
+    transition: color 0.3s ease-in;
+    color: var(--editor-h-color);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: clamp(22px, 2.6vw, 32px);
+  }
+  h2 {
+    font-size: clamp(19px, 2.3vw, 28px);
+    font-weight: 400;
+  }
+  h3 {
+    font-size: clamp(17px, 2vw, 24px);
+  }
+  h4 {
+    font-size: clamp(16px, 1.8vw, 20px);
+  }
+  h5 {
+    font-size: clamp(14px, 1.5vw, 16px);
+  }
+  h6 {
+    font-size: clamp(13px, 1.3vw, 14px);
+    color: var(--orange);
+  }
+
+  li,
+  p {
+    color: var(--editor-text-color);
+    font-family: var(--font-family-1);
+    font-size: clamp(13px, 1.3vw, 14px);
+    line-height: 171%;
+    transition: color 0.3s ease-in;
+  }
+  ol,
+  ul {
+    padding-left: 24px;
+  }
+  ul {
+    li {
+      &::marker {
+        color: var(--orange);
+      }
+    }
+  }
+  code {
+    background-color: var(--editor-code-color);
+  }
+  blockquote {
+    background-color: var(--editor-blockquote-color);
+    padding-left: 24px;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.3s ease-in;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4px 0 0 4px;
+      width: 4px;
+      height: 100%;
+      background-color: var(--orange);
+    }
+  }
+}

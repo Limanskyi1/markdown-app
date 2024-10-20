@@ -1,0 +1,38 @@
+.switch {
+    position: relative;
+    display: flex;
+    height: 1.75rem; 
+    width: 3.5rem;   
+    cursor: pointer;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 0.25rem; 
+    transition: background-color 0.2s ease-in-out;
+    
+    &:focus {
+      outline: none;
+  
+      &[data-focus] {
+        outline: 1px solid white;
+      }
+    }
+  
+    &[data-checked] {
+      background: rgba(255, 255, 255, 0.1);
+      .ball{
+        transform: translateX(28px);
+      }
+    }
+  }
+  
+
+.ball{
+    pointer-events: none;
+    display: inline-block;
+    width: 20px;
+    aspect-ratio: 1/1;
+    transform: translateX(0);
+    border-radius: 50%;
+    background: #fff;
+    transition: .2s ease-in-out;
+}

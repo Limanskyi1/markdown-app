@@ -13,6 +13,7 @@ export const Loader = ({ className, ...props }: LoaderProps) => {
     )}
       width={40}
       height={40}
+      fill="var(--orange)"
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"

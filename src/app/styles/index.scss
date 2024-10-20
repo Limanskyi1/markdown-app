@@ -1,4 +1,5 @@
 @use "./reset.scss";
 @use "./variables.scss";
-@use "./global.scss";
 @use "./typography.scss";
+@use "./themes/light.scss";
+@use "./themes/dark.scss";

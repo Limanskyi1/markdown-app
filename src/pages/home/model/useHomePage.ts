@@ -14,14 +14,13 @@ import { introductionDoc } from "@/shared/consts/consts";
 const isIntroDeleted = localStorage.getItem("isIntroDeleted") === "true";
 
 export const useHomePage = () => {
-  const dispatch = useAppDispatch();
-  const introDocMarkup = useAppSelector((state) => state.document.document?.markup);
+  const dispatch = useAppDispatch(); 
+  const introDocMarkup = useAppSelector((state) => state.document.document?.markup); 
 
 
   useEffect(() => {
     if (!isIntroDeleted) {
       const document = getIntroDocumentFromLS();
-      console.log(document);
       dispatch(setDocument(document || introductionDoc));
     } else {
       dispatch(resetDocument());

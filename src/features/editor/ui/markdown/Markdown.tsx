@@ -1,7 +1,6 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 
-import { BlockTitle } from "@/shared/ui/blockTitle";
-
+import { BlockTitle } from "../blockTitle/ui/BlockTitle";
 import styles from "./Markdown.module.scss";
 
 interface MarkdownProps {

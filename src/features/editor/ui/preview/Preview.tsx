@@ -2,8 +2,7 @@ import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 
-import { BlockTitle } from "@/shared/ui/blockTitle";
-
+import { BlockTitle } from "../blockTitle/ui/BlockTitle";
 import styles from "./Preview.module.scss";
 
 interface PreviewProps {

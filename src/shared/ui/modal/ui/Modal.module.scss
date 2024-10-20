@@ -1,56 +1,63 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+
+  }
+}
+
 .layout {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--modal-layout-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease-in;
+  animation: fadeIn 0.3s ease-out forwards;
 }
-
-
-.open{
-  opacity: 1;
-  visibility: visible;
-}
-
 
 .modal {
-  background: var(--100);
+  background: var(--modal-body-bg);
   border-radius: 4px;
   padding: 24px;
   max-width: 343px;
-  transform: scale(0.7);
-  opacity: 0;
-  transition: all .3s ease-in-out;
-}
+  animation: scaleIn 0.3s ease-out forwards;
 
-.openModal{
-  transform: scale(1);
-  opacity: 1;
 }
 
 .title {
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: clamp(16px, 1.8vw, 20px);
-  color: var(--700);
-  margin-bottom: 16px;
-}
-.text {
-  font-family: var(--font-family-1);
-  line-height: 171%;
-  color: var(--500);
+  color: var(--modal-h-color);
   margin-bottom: 16px;
 }
 
-.button{
-    width: 100%;
-    justify-content: center;
+.text {
+  font-family: var(--font-family-1);
+  line-height: 171%;
+  color: var(--modal-text-color);
+  margin-bottom: 16px;
+}
+
+.button {
+  width: 100%;
+  justify-content: center;
 }
 

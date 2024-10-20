@@ -1,6 +1,7 @@
 .markdown {
-  border-right: 1px solid var(--300);
+  border-right: 1px solid var(--border-color);
   height: 100%;
+  transition: .3s ease-in;
 }
 .textarea {
   padding: 10px 16px;
@@ -10,6 +11,8 @@
   font-family: var(--font-family-3);
   font-size: clamp(13px, 1.3vw, 14px);
   line-height: 171%;
-  color: var(--700);
+  color: var(--editor-text-color);
   white-space: pre-wrap;
+  background-color: var(--main-bg-color);
+  transition: background-color 0.3s ease-in;
 }

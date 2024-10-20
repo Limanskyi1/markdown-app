@@ -1,4 +1,4 @@
-import { Editor } from "@/features/markup";
+import { Editor } from "@/features/editor";
 import { Loader } from "@/shared/ui/loader";
 
 import { useDocumentPage } from "../model/useDocumentPage";
