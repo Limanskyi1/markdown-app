@@ -17,12 +17,15 @@ export const useHomePage = () => {
   const dispatch = useAppDispatch();
   const introDocMarkup = useAppSelector((state) => state.document.document?.markup);
 
+
   useEffect(() => {
     if (!isIntroDeleted) {
       const document = getIntroDocumentFromLS();
+      console.log(document);
       dispatch(setDocument(document || introductionDoc));
+    } else {
+      dispatch(resetDocument());
     }
-    dispatch(resetDocument());
     dispatch(changeMode("intro"));
   }, []);
 

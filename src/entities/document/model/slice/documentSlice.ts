@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { unescapeStringFromJson } from "@/shared/utils/unescapeStringFromJson";
 
-import { IDocument } from "../types/types";
+import { IDocument } from "../types/document";
 
 type TypeMode = "intro" | "main";
 

@@ -1,11 +1,11 @@
 import { docsApi } from "@/shared/api/docsApi";
 
-import { IDocument } from "../types/types";
+import { IDocument } from "../types/document";
 
 const api = docsApi.injectEndpoints({
   endpoints: (build) => ({
     getAllDocuments: build.query<IDocument[], void>({
-      query: () => "/documents",
+      query: () => "/documents", 
     }),
     getDocument: build.query<IDocument, number>({
       query: (id) => `/documents/${id}`,
@@ -17,7 +17,24 @@ const api = docsApi.injectEndpoints({
         body: newDocument,
       }),
     }),
+    deleteDocument: build.mutation<void, number>({
+      query: (id) => ({
+        url: `/documents/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    updateDocument: build.mutation<IDocument, Partial<IDocument>>({
+      query: (updatedDocument) => ({
+        url: `/documents/${updatedDocument.id}`,
+        method: "PATCH",
+        body: updatedDocument,
+      }),
+    })
   }),
 });
 
-export const { useGetAllDocumentsQuery,useGetDocumentQuery , useCreateDocumentMutation } = api;
+export const getAllDocuments = api.useGetAllDocumentsQuery;
+export const getDocument = api.useGetDocumentQuery;
+export const createDocument = api.useCreateDocumentMutation;
+export const deleteDocument = api.useDeleteDocumentMutation;
+export const updateDocument = api.useUpdateDocumentMutation;

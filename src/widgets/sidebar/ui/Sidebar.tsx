@@ -2,15 +2,15 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 import { DocumentInfoItem } from "@/entities/document";
-import { useGetAllDocumentsQuery as getDocuments } from "@/entities/document/model/api/api";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 
 import styles from "./Sidebar.module.scss";
+import { getAllDocuments } from "@/entities/document/model/api/api";
 
 export const Sidebar = () => {
   const isOpen = useAppSelector((state) => state.sidebar.isOpen);
 
-  const { data: documents } = getDocuments();
+  const { data: documents } = getAllDocuments();
 
   return (
     <aside className={classNames(styles.sidebar, { [styles.closed]: !isOpen })}>

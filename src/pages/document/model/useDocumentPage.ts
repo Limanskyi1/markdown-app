@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { useGetDocumentQuery as getDocument } from "@/entities/document/model/api/api";
+import { getDocument } from "@/entities/document/model/api/api";
 import {
   changeMarkup,
   changeMode,

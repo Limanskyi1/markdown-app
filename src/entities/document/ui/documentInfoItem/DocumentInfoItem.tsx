@@ -4,17 +4,13 @@ import styles from "./DocumentInfoItem.module.scss";
 
 interface DocumentInfoItemProps {
   title: string;
-  setTitle?: (value: string) => void;
   className?: string;
   disabled?: boolean;
+  setTitle?: (value: string) => void;
 }
 
 export const DocumentInfoItem = (props: DocumentInfoItemProps) => {
   const { title, setTitle, className, disabled = true } = props;
-
-  if (!title) {
-    return null;
-  }
 
   return (
     <div className={classNames(styles.item, className)}>

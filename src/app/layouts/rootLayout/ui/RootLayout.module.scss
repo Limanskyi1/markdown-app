@@ -1,6 +1,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
 }
 .right {
   flex: 1;

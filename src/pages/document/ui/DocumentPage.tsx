@@ -1,13 +1,13 @@
 import { Editor } from "@/features/markup";
+import { Loader } from "@/shared/ui/loader";
 
 import { useDocumentPage } from "../model/useDocumentPage";
-import { Loader } from "@/shared/ui/loader";
 
 export const DocumentPage = () => {
   const { isError, isLoading, docMarkup, editDocument } = useDocumentPage();
 
   if (isLoading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   if (isError) {
