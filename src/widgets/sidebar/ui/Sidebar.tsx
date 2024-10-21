@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 
 import { CreateDocButton, DocumentInfoItem } from "@/entities/document";
 import { getAllDocuments } from "@/entities/document/model/api/api";
+import { ThemeSwitcher } from "@/features/themeSwitcher";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 
 import styles from "./Sidebar.module.scss";
-import { ThemeSwitcher } from "@/features/themeSwitcher";
 
 export const Sidebar = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ export const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <ThemeSwitcher/>
+      <ThemeSwitcher />
     </aside>
   );
 };

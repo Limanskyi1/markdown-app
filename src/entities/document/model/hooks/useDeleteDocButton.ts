@@ -1,8 +1,10 @@
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllDocuments, deleteDocument } from "../api/api";
+
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+
+import { deleteDocument, getAllDocuments } from "../api/api";
 import { resetDocument } from "../slice/documentSlice";
 
 export const useDeleteDocButton = () => {
@@ -41,6 +43,6 @@ export const useDeleteDocButton = () => {
     openModal,
     closeModal,
     deleteModalIsOpen,
-    onClickDelete
+    onClickDelete,
   };
 };

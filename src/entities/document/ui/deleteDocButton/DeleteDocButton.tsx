@@ -1,8 +1,9 @@
 import classNames from "classnames";
 
 import { Modal } from "@/shared/ui/modal";
-import styles from "./deleteDocButton.module.scss";
+
 import { useDeleteDocButton } from "../../model/hooks/useDeleteDocButton";
+import styles from "./deleteDocButton.module.scss";
 
 export const DeleteDocButton = () => {
   const { document, openModal, closeModal, deleteModalIsOpen, onClickDelete } =

@@ -1,6 +1,5 @@
 import { ChangeEvent } from "react";
 
-import { BlockTitle } from "../blockTitle/ui/BlockTitle";
 import styles from "./Markdown.module.scss";
 
 interface MarkdownProps {
@@ -17,7 +16,9 @@ export const Markdown = (props: MarkdownProps) => {
 
   return (
     <div className={styles.markdown}>
-      <BlockTitle title="Markdown" />
+      <div className={styles.blockTitle}>
+        <p>Markdown</p>
+      </div>
       <textarea
         value={value}
         onChange={onChange}

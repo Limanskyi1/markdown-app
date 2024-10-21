@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 import { Markdown } from "../markdown/Markdown";
 import { Preview } from "../preview/Preview";
 import styles from "./Editor.module.scss";
+import classNames from "classnames";
 
 interface EditorProps {
   markup: string;
@@ -10,10 +13,19 @@ interface EditorProps {
 export const Editor = (props: EditorProps) => {
   const { markup, setMarkup } = props;
 
+  const [isMarkdownHide, setIsMarkdownHide] = useState(false);
+
+  const toggleMarkdown = () => {
+    setIsMarkdownHide(!isMarkdownHide);
+  };
+
   return (
-    <div className={styles.editor}>
-      <Markdown value={markup} setValue={setMarkup} />
-      <Preview markup={markup} />
+    <div className={classNames(
+      styles.editor,
+      {[styles.markdownHide]: isMarkdownHide}
+    )}>
+      {!isMarkdownHide && <Markdown value={markup} setValue={setMarkup} />}
+      <Preview markup={markup} isMarkdownHide={isMarkdownHide} toggleMarkdown={toggleMarkdown}/>
     </div>
   );
 };
