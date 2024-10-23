@@ -11,9 +11,9 @@ import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 
 export const useDocumentPage = () => {
-  const dispatch = useAppDispatch(); //
+  const dispatch = useAppDispatch(); 
   const params = useParams();
-  const docMarkup = useAppSelector((state) => state.document.document?.markup); 
+  const docMarkup = useAppSelector((state) => state.document.document?.markup);
   const { data: document, isLoading, isError } = getDocument(Number(params.id));
 
   useEffect(() => {

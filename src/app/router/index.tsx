@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { DocumentPage } from "@/pages/document";
 import { HomePage } from "@/pages/home";
+import { NotFoundPage } from "@/pages/not-found";
 
 import { RootLayout } from "../layouts/rootLayout";
 
@@ -19,6 +20,10 @@ const routes = [
         element: <DocumentPage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ];
 

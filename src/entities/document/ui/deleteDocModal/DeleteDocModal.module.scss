@@ -1,0 +1,19 @@
+.title {
+  font-family: var(--font-family-1);
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--modal-h-color);
+  margin-bottom: 16px;
+}
+
+.text {
+  font-family: var(--font-family-1);
+  line-height: 171%;
+  color: var(--modal-text-color);
+  margin-bottom: 16px;
+}
+
+.button {
+  width: 100%;
+  justify-content: center;
+}

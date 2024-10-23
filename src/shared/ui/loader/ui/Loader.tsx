@@ -1,4 +1,5 @@
 import classNames from "classnames";
+
 import styles from "./Loader.module.scss";
 
 interface LoaderProps extends React.SVGProps<SVGSVGElement> {
@@ -7,10 +8,7 @@ interface LoaderProps extends React.SVGProps<SVGSVGElement> {
 export const Loader = ({ className, ...props }: LoaderProps) => {
   return (
     <svg
-    className={classNames(
-      styles.loader,
-      className,
-    )}
+      className={classNames(styles.loader, className)}
       width={40}
       height={40}
       fill="var(--orange)"

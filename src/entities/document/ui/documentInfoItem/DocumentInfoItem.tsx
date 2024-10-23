@@ -14,9 +14,10 @@ export const DocumentInfoItem = (props: DocumentInfoItemProps) => {
   const { id } = useParams();
   const { title, setTitle, className, disabled = true } = props;
 
-
   return (
-    <div className={classNames(styles.item, className,{[styles.active]: id})}>
+    <div
+      className={classNames(styles.item, className, { [styles.active]: id })}
+    >
       <img src="/doc-icon.svg" alt="Document icon" />
       <div className={styles.info}>
         <span>Document Name</span>

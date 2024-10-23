@@ -1,0 +1,11 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: clamp(20px, 2.5vw, 30px);
+  h2{
+    font-family: var(--font-family-1);
+  }
+}

@@ -11,11 +11,7 @@ export interface documentState {
   document: IDocument | null;
 }
 
-const initialDocument = {
-  id: 0,
-  title: "",
-  markup: "",
-};
+const initialDocument = null;
 
 const initialState: documentState = {
   mode: "intro",
@@ -53,6 +49,8 @@ export const documentSlice = createSlice({
     },
     resetDocument: (state) => {
       state.document = null;
+      localStorage.removeItem("introductionDoc");
+      localStorage.setItem("isIntroDeleted", "true");
     },
   },
 });

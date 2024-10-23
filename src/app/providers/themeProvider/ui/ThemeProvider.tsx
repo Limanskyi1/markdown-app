@@ -19,7 +19,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const fallbackTheme = getThemeFromLS()
+  const fallbackTheme = getThemeFromLS();
   const [theme, setTheme] = useState<ITheme>(fallbackTheme);
 
   const toggleTheme = () => {

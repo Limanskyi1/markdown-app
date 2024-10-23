@@ -6,17 +6,18 @@ import {
   resetDocument,
   setDocument,
 } from "@/entities/document/model/slice/documentSlice";
+import { introductionDoc } from "@/shared/consts/consts";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { getIntroDocumentFromLS } from "@/shared/utils/getIntroDocument";
-import { introductionDoc } from "@/shared/consts/consts";
 
 const isIntroDeleted = localStorage.getItem("isIntroDeleted") === "true";
 
 export const useHomePage = () => {
-  const dispatch = useAppDispatch(); 
-  const introDocMarkup = useAppSelector((state) => state.document.document?.markup); 
-
+  const dispatch = useAppDispatch();
+  const introDocMarkup = useAppSelector(
+    (state) => state.document.document?.markup,
+  );
 
   useEffect(() => {
     if (!isIntroDeleted) {

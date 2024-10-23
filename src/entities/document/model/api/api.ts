@@ -5,7 +5,7 @@ import { IDocument } from "../types/document";
 const api = docsApi.injectEndpoints({
   endpoints: (build) => ({
     getAllDocuments: build.query<IDocument[], void>({
-      query: () => "/documents", 
+      query: () => "/documents",
     }),
     getDocument: build.query<IDocument, number>({
       query: (id) => `/documents/${id}`,
@@ -29,7 +29,7 @@ const api = docsApi.injectEndpoints({
         method: "PATCH",
         body: updatedDocument,
       }),
-    })
+    }),
   }),
 });
 

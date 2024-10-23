@@ -1,15 +1,15 @@
-.switcher{
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.switcher {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.icon{
-    fill: #5A6069;
-    transition: .3s ease-in;
+.icon {
+  fill: #5a6069;
+  transition: 0.3s ease-in;
 }
 
-.iconActive{
-    fill: white;
+.iconActive {
+  fill: white;
 }

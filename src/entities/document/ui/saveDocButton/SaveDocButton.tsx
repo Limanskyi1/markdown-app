@@ -1,21 +1,24 @@
+
+
 import classNames from "classnames";
 
-import { updateDocument } from "@/entities/document/model/api/api";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
+
+import { updateDocument } from "../../model/api/api";
+import styles from "./SaveDocButton.module.scss";
 import { Button } from "@/shared/ui/button";
 
-import styles from "./SaveButton.module.scss";
-
-export const SaveButton = () => {
+export const SaveDocButton = () => {
   const document = useAppSelector((state) => state.document.document);
   const mode = useAppSelector((state) => state.document.mode);
   const [updateDoc, { isLoading }] = updateDocument();
 
   const onClick = async () => {
-    if (mode === "intro" && document) {
+    if (!document) return;
+    if (mode === "intro") {
       localStorage.setItem("introductionDoc", JSON.stringify(document));
     }
-    if (mode === "main" && document) {
+    if (mode === "main") {
       await updateDoc(document).unwrap();
     }
   };
@@ -26,7 +29,7 @@ export const SaveButton = () => {
       onClick={onClick}
     >
       <img src="/file.svg" alt="File icon" />
-      Save Changes
+      {isLoading ? "Saving..." : "Save Changes"}
     </Button>
   );
 };

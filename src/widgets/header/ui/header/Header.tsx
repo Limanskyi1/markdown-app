@@ -1,4 +1,4 @@
-import { DocumentInfoItem } from "@/entities/document";
+import { DocumentInfoItem, SaveDocButton } from "@/entities/document";
 import { DeleteDocButton } from "@/entities/document";
 import { changeName } from "@/entities/document/model/slice/documentSlice";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
@@ -6,7 +6,6 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Logo } from "@/shared/ui/logo";
 
 import { Burger } from "../burger/Burger";
-import { SaveButton } from "../saveButton/SaveButton";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
@@ -30,7 +29,7 @@ export const Header = () => {
       )}
       <div className={styles.buttons}>
         <DeleteDocButton />
-        <SaveButton />
+        <SaveDocButton />
       </div>
     </header>
   );

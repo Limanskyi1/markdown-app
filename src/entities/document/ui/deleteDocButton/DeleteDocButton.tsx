@@ -1,13 +1,21 @@
 import classNames from "classnames";
+import { useState } from "react";
 
-import { Modal } from "@/shared/ui/modal";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
 
-import { useDeleteDocButton } from "../../model/hooks/useDeleteDocButton";
+import { DeleteDocModal } from "../deleteDocModal/DeleteDocModal";
 import styles from "./deleteDocButton.module.scss";
 
 export const DeleteDocButton = () => {
-  const { document, openModal, closeModal, deleteModalIsOpen, onClickDelete } =
-    useDeleteDocButton();
+  const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+  const document = useAppSelector((state) => state.document.document);
+
+  const closeModal = () => {
+    setDeleteModalIsOpen(false);
+  };
+  const openModal = () => {
+    setDeleteModalIsOpen(true);
+  };
 
   return (
     <>
@@ -20,15 +28,7 @@ export const DeleteDocButton = () => {
         alt="Trash icon"
       />
       {deleteModalIsOpen && (
-        <Modal
-          title="Delete this document?"
-          isOpen={deleteModalIsOpen}
-          close={closeModal}
-          action={onClickDelete}
-        >
-          Are you sure you want to delete the ‘{document?.title}’ document and
-          its contents? This action cannot be reversed.
-        </Modal>
+        <DeleteDocModal isOpen={deleteModalIsOpen} closeModal={closeModal} />
       )}
     </>
   );

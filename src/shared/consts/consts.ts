@@ -41,4 +41,4 @@ export const introductionDoc = {
 export const newDocument = {
   title: "untitled-document",
   markup: "",
-}
+};
