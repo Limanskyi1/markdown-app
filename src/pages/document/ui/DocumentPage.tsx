@@ -1,10 +1,21 @@
+import { useParams } from "react-router-dom";
+
+import { getDocument } from "@/entities/document/model/api/api";
+import { changeMarkup } from "@/entities/document/model/slice/documentSlice";
 import { Editor } from "@/features/editor";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Loader } from "@/shared/ui/loader";
 
-import { useDocumentPage } from "../model/useDocumentPage";
-
 export const DocumentPage = () => {
-  const { isError, isLoading, docMarkup, editDocument } = useDocumentPage();
+  const dispatch = useAppDispatch();
+  const params = useParams();
+  const docMarkup = useAppSelector((state) => state.document.document?.markup);
+  const { isLoading, isError } = getDocument(Number(params.id));
+
+  const editDocument = (markup: string) => {
+    dispatch(changeMarkup(markup));
+  };
 
   if (isLoading) {
     return <Loader />;

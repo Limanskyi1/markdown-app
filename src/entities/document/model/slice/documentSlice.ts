@@ -49,7 +49,6 @@ export const documentSlice = createSlice({
     },
     resetDocument: (state) => {
       state.document = null;
-      localStorage.removeItem("introductionDoc");
       localStorage.setItem("isIntroDeleted", "true");
     },
   },

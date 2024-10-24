@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import {
   changeMarkup,
   changeMode,
-  resetDocument,
   setDocument,
 } from "@/entities/document/model/slice/documentSlice";
 import { introductionDoc } from "@/shared/consts/consts";
@@ -23,10 +22,8 @@ export const useHomePage = () => {
     if (!isIntroDeleted) {
       const document = getIntroDocumentFromLS();
       dispatch(setDocument(document || introductionDoc));
-    } else {
-      dispatch(resetDocument());
+      dispatch(changeMode("intro"));
     }
-    dispatch(changeMode("intro"));
   }, []);
 
   const editIntroDoc = (markup: string) => {

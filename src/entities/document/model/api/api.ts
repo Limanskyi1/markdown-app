@@ -1,5 +1,6 @@
 import { docsApi } from "@/shared/api/docsApi";
 
+import { changeMode, setDocument } from "../slice/documentSlice";
 import { IDocument } from "../types/document";
 
 const api = docsApi.injectEndpoints({
@@ -9,6 +10,15 @@ const api = docsApi.injectEndpoints({
     }),
     getDocument: build.query<IDocument, number>({
       query: (id) => `/documents/${id}`,
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data: document } = await queryFulfilled;
+          dispatch(setDocument(document));
+          dispatch(changeMode("main"));
+        } catch (error) {
+          console.error("Error fetching document:", error);
+        }
+      },
     }),
     createDocument: build.mutation<IDocument, Partial<IDocument>>({
       query: (newDocument) => ({

@@ -7,8 +7,8 @@ import { deleteDocument, getAllDocuments } from "../api/api";
 import { resetDocument } from "../slice/documentSlice";
 
 export const useDeleteDocModal = () => {
-  const { id } = useParams();
   const dispatch = useAppDispatch();
+  const { id } = useParams();
   const mode = useAppSelector((state) => state.document.mode);
   const { refetch } = getAllDocuments();
   const [deleteDoc] = deleteDocument();
