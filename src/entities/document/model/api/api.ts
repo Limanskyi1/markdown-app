@@ -9,7 +9,7 @@ const api = docsApi.injectEndpoints({
       query: () => "/documents",
     }),
     getDocument: build.query<IDocument, number>({
-      query: (id) => `/documents/${id}`,
+      query: (id) =>  `/documents/${id}`,
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data: document } = await queryFulfilled;
@@ -19,12 +19,14 @@ const api = docsApi.injectEndpoints({
           console.error("Error fetching document:", error);
         }
       },
+      keepUnusedDataFor: 0,
     }),
     createDocument: build.mutation<IDocument, Partial<IDocument>>({
       query: (newDocument) => ({
         url: "/documents",
         method: "POST",
         body: newDocument,
+        
       }),
     }),
     deleteDocument: build.mutation<void, number>({

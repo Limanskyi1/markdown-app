@@ -1,15 +1,14 @@
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
-import { toggleSidebar } from "@/widgets/sidebar/model/slice/sidebarSlice";
-
 import styles from "./Burger.module.scss";
 
-export const Burger = () => {
-  const dispatch = useAppDispatch();
-  const active = useAppSelector((state) => state.sidebar.isOpen);
+interface BurgerProps {
+  toggleSidebar: () => void;
+  sidebarIsOpen: boolean;
+}
+
+export const Burger = ({ toggleSidebar ,sidebarIsOpen}: BurgerProps) => {
   return (
-    <div onClick={() => dispatch(toggleSidebar())} className={styles.burger}>
-      <img src={active ? "/close.svg" : "/burger.svg"} alt="toogle" />
+    <div onClick={toggleSidebar} className={styles.burger}>
+      <img src={sidebarIsOpen ? "/close.svg" : "/burger.svg"} alt="toogle" />
     </div>
   );
 };

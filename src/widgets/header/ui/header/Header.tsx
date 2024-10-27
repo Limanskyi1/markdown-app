@@ -8,7 +8,12 @@ import { Logo } from "@/shared/ui/logo";
 import { Burger } from "../burger/Burger";
 import styles from "./Header.module.scss";
 
-export const Header = () => {
+interface HeaderProps {
+  toggleSidebar: () => void;
+  sidebarIsOpen: boolean;
+}
+
+export const Header = ({ toggleSidebar ,sidebarIsOpen}: HeaderProps) => {
   const dispatch = useAppDispatch();
   const document = useAppSelector((state) => state.document.document);
   const setDocumentName = (value: string) => {
@@ -17,7 +22,7 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Burger />
+      <Burger toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen}/>
       <Logo />
       {document && (
         <DocumentInfoItem

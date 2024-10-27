@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Button } from "@/shared/ui/button";
 import { Modal } from "@/shared/ui/modal";
@@ -14,14 +12,12 @@ interface DeleteDocModalProps {
 
 export const DeleteDocModal = (props: DeleteDocModalProps) => {
   const { isOpen, closeModal } = props;
-  const navigate = useNavigate();
-  const handleDeleteDoc = useDeleteDocModal();
   const document = useAppSelector((state) => state.document.document);
+  const handleDeleteDoc = useDeleteDocModal();
 
   const onClickDelete = async () => {
     await handleDeleteDoc();
     closeModal();
-    navigate("/");
   };
 
   return (

@@ -1,6 +1,7 @@
 import classNames from "classnames";
+import { useContext } from "react";
 
-import { useTheme } from "@/shared/hooks/useTheme";
+import { ThemeContext } from "@/app/providers/themeProvider/ui/ThemeProvider";
 import { Moon } from "@/shared/icons/Moon";
 import { Sun } from "@/shared/icons/Sun";
 import { Switch } from "@/shared/ui/switch";
@@ -8,7 +9,7 @@ import { Switch } from "@/shared/ui/switch";
 import styles from "./ThemeSwitcher.module.scss";
 
 export const ThemeSwitcher = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <div className={styles.switcher} onClick={toggleTheme}>

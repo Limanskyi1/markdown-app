@@ -9,9 +9,9 @@ import { Loader } from "@/shared/ui/loader";
 
 export const DocumentPage = () => {
   const dispatch = useAppDispatch();
-  const params = useParams();
+  const { id } = useParams();
   const docMarkup = useAppSelector((state) => state.document.document?.markup);
-  const { isLoading, isError } = getDocument(Number(params.id));
+  const { isLoading, isError } = getDocument(Number(id));
 
   const editDocument = (markup: string) => {
     dispatch(changeMarkup(markup));

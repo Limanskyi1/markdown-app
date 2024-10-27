@@ -21,22 +21,8 @@
   margin-bottom: clamp(20px, 2.5vw, 30px);
 }
 
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 1;
-}
-
 .button {
   margin-bottom: clamp(16px, 2vw, 24px);
 }
 
-.link {
-  opacity: 0.4;
-  transition: opacity 0.3s ease-out;
-}
 
-.activeLink {
-  opacity: 1;
-}
