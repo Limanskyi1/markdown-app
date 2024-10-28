@@ -6,12 +6,11 @@ import {
   resetDocument,
   setDocument,
 } from "@/entities/document/model/slice/documentSlice";
+
 import { introductionDoc } from "@/shared/consts/consts";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { getIntroDocumentFromLS } from "@/shared/utils/getIntroDocument";
-
-const isIntroDeleted = localStorage.getItem("isIntroDeleted") === "true";
 
 export const useHomePage = () => {
   const dispatch = useAppDispatch();
@@ -19,14 +18,19 @@ export const useHomePage = () => {
     (state) => state.document.document?.markup,
   );
 
+  const setIntroDocument = () => {
+    const document = getIntroDocumentFromLS();
+    dispatch(setDocument(document || introductionDoc));
+    dispatch(changeMode("intro"));
+  };
+
   useEffect(() => {
+    const isIntroDeleted = localStorage.getItem("isIntroDeleted") === "true";
     if (!isIntroDeleted) {
-      const document = getIntroDocumentFromLS();
-      dispatch(setDocument(document || introductionDoc));
-      dispatch(changeMode("intro"));
-    } else {
-      dispatch(resetDocument());
+      setIntroDocument();
+      return;
     }
+    dispatch(resetDocument());
   }, []);
 
   const editIntroDoc = (markup: string) => {
@@ -36,5 +40,6 @@ export const useHomePage = () => {
   return {
     introDocMarkup,
     editIntroDoc,
+    setIntroDocument,
   };
 };

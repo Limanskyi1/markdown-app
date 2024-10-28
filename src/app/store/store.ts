@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import documentReduser from "@/entities/document/model/slice/documentSlice";
-import { docsApi } from "@/shared/api/docsApi";
+import { docsApi } from "@/entities/document/model/api/api";
 
 export const store = configureStore({
   reducer: {

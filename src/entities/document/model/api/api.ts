@@ -1,15 +1,25 @@
-import { docsApi } from "@/shared/api/docsApi";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { changeMode, setDocument } from "../slice/documentSlice";
 import { IDocument } from "../types/document";
 
-const api = docsApi.injectEndpoints({
+export const docsApi = createApi({
+  reducerPath: "docsApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://af7ff572abe7661c.mokky.dev" }),
+  tagTypes: ["Documents"],
   endpoints: (build) => ({
     getAllDocuments: build.query<IDocument[], void>({
       query: () => "/documents",
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Documents" as const, id })),
+              { type: "Documents", id: "LIST" },
+            ]
+          : [{ type: "Documents", id: "LIST" }],
     }),
     getDocument: build.query<IDocument, number>({
-      query: (id) =>  `/documents/${id}`,
+      query: (id) => `/documents/${id}`,
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data: document } = await queryFulfilled;
@@ -26,14 +36,15 @@ const api = docsApi.injectEndpoints({
         url: "/documents",
         method: "POST",
         body: newDocument,
-        
       }),
+      invalidatesTags: ["Documents"],
     }),
     deleteDocument: build.mutation<void, number>({
       query: (id) => ({
         url: `/documents/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Documents"],
     }),
     updateDocument: build.mutation<IDocument, Partial<IDocument>>({
       query: (updatedDocument) => ({
@@ -45,8 +56,8 @@ const api = docsApi.injectEndpoints({
   }),
 });
 
-export const getAllDocuments = api.useGetAllDocumentsQuery;
-export const getDocument = api.useGetDocumentQuery;
-export const createDocument = api.useCreateDocumentMutation;
-export const deleteDocument = api.useDeleteDocumentMutation;
-export const updateDocument = api.useUpdateDocumentMutation;
+export const getAllDocuments = docsApi.useGetAllDocumentsQuery;
+export const getDocument = docsApi.useGetDocumentQuery;
+export const createDocument = docsApi.useCreateDocumentMutation;
+export const deleteDocument = docsApi.useDeleteDocumentMutation;
+export const updateDocument = docsApi.useUpdateDocumentMutation;
