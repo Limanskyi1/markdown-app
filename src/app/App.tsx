@@ -1,7 +1,8 @@
 import { Provider as ReduxProvider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 
-import { ThemeProvider } from "./providers/themeProvider";
+import { ThemeProvider } from "@/features/theme-changer/ui/theme-provider";
+
 import { router } from "./router";
 import { store } from "./store/store";
 

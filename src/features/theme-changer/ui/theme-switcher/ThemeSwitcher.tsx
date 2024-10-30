@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { useContext } from "react";
 
-import { ThemeContext } from "@/app/providers/themeProvider/ui/ThemeProvider";
 import { Moon } from "@/shared/icons/Moon";
 import { Sun } from "@/shared/icons/Sun";
 import { Switch } from "@/shared/ui/switch";
 
+import { ThemeContext } from "../theme-provider/ui/ThemeProvider";
 import styles from "./ThemeSwitcher.module.scss";
 
 export const ThemeSwitcher = () => {

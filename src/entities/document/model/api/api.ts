@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { changeMode, setDocument } from "../slice/documentSlice";
+import { setDocument } from "../slice/documentSlice";
 import { IDocument } from "../types/document";
 
 export const docsApi = createApi({
@@ -24,7 +24,6 @@ export const docsApi = createApi({
         try {
           const { data: document } = await queryFulfilled;
           dispatch(setDocument(document));
-          dispatch(changeMode("main"));
         } catch (error) {
           console.error("Error fetching document:", error);
         }

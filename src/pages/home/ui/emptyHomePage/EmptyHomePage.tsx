@@ -1,9 +1,5 @@
 import { CreateDocButton } from "@/entities/document";
-import { setDocument } from "@/entities/document/model/slice/documentSlice";
-import { introductionDoc } from "@/shared/consts/consts";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { Button } from "@/shared/ui/button";
-import { getIntroDocumentFromLS } from "@/shared/utils/getIntroDocument";
 
 import { useHomePage } from "../../model/useHomePage";
 import styles from "./EmptyHomePage.module.scss";

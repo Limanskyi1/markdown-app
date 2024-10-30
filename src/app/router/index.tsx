@@ -6,7 +6,7 @@ import { NotFoundPage } from "@/pages/not-found";
 
 import { RootLayout } from "../layouts/rootLayout";
 
-const routes = [
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
@@ -25,6 +25,4 @@ const routes = [
     path: "*",
     element: <NotFoundPage />,
   },
-];
-
-export const router = createBrowserRouter(routes);
+]);

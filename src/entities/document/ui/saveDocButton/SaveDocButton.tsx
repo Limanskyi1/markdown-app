@@ -1,24 +1,24 @@
-
-
 import classNames from "classnames";
+import { useLocation } from "react-router-dom";
 
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { Button } from "@/shared/ui/button";
 
 import { updateDocument } from "../../model/api/api";
 import styles from "./SaveDocButton.module.scss";
-import { Button } from "@/shared/ui/button";
 
 export const SaveDocButton = () => {
+  const { pathname } = useLocation();
+  //
   const document = useAppSelector((state) => state.document.document);
-  const mode = useAppSelector((state) => state.document.mode);
+  //
   const [updateDoc, { isLoading }] = updateDocument();
 
   const onClick = async () => {
     if (!document) return;
-    if (mode === "intro") {
+    if (pathname === "/") {
       localStorage.setItem("introductionDoc", JSON.stringify(document));
-    }
-    if (mode === "main") {
+    } else {
       await updateDoc(document).unwrap();
     }
   };

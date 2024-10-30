@@ -13,7 +13,7 @@ interface HeaderProps {
   sidebarIsOpen: boolean;
 }
 
-export const Header = ({ toggleSidebar ,sidebarIsOpen}: HeaderProps) => {
+export const Header = ({ toggleSidebar, sidebarIsOpen }: HeaderProps) => {
   const dispatch = useAppDispatch();
   const document = useAppSelector((state) => state.document.document);
   const setDocumentName = (value: string) => {
@@ -22,7 +22,7 @@ export const Header = ({ toggleSidebar ,sidebarIsOpen}: HeaderProps) => {
 
   return (
     <header className={styles.header}>
-      <Burger toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen}/>
+      <Burger toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
       <Logo />
       {document && (
         <DocumentInfoItem

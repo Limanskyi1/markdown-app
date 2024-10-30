@@ -4,17 +4,13 @@ import { unescapeStringFromJson } from "@/shared/utils/unescapeStringFromJson";
 
 import { IDocument } from "../types/document";
 
-type TypeMode = "intro" | "main";
-
 export interface documentState {
-  mode: TypeMode;
   document: IDocument | null;
 }
 
 const initialDocument = null;
 
 const initialState: documentState = {
-  mode: "intro",
   document: initialDocument || null,
 };
 
@@ -44,9 +40,6 @@ export const documentSlice = createSlice({
         title: action.payload,
       };
     },
-    changeMode: (state, action: PayloadAction<TypeMode>) => {
-      state.mode = action.payload;
-    },
     resetDocument: (state) => {
       state.document = null;
     },
@@ -56,7 +49,6 @@ export const documentSlice = createSlice({
 export const {
   setDocument,
   changeMarkup,
-  changeMode,
   changeName,
   resetDocument,
 } = documentSlice.actions;

@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Header } from "@/widgets/header";
 import { Sidebar } from "@/widgets/sidebar";
 
 import styles from "./RootLayout.module.scss";
-import { useState } from "react";
 
 export const RootLayout = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(true);
@@ -14,9 +14,9 @@ export const RootLayout = () => {
   };
   return (
     <div className={styles.layout}>
-      <Sidebar isOpen={sidebarIsOpen}/>
+      <Sidebar isOpen={sidebarIsOpen} />
       <div className={styles.right}>
-        <Header toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen}/>
+        <Header sidebarIsOpen={sidebarIsOpen} toggleSidebar={toggleSidebar} />
         <main className={styles.main}>
           <Outlet />
         </main>

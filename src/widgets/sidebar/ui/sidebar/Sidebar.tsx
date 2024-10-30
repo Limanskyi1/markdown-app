@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import { CreateDocButton } from "@/entities/document";
 import { getAllDocuments } from "@/entities/document/model/api/api";
-import { ThemeSwitcher } from "@/features/themeSwitcher";
+import { ThemeSwitcher } from "@/features/theme-changer";
 
 import styles from "./Sidebar.module.scss";
 import { DocumentsList } from "../documentsList/DocumentsList";

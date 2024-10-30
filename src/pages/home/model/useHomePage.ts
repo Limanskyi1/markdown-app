@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 import {
   changeMarkup,
-  changeMode,
   resetDocument,
   setDocument,
 } from "@/entities/document/model/slice/documentSlice";
@@ -21,7 +20,6 @@ export const useHomePage = () => {
   const setIntroDocument = () => {
     const document = getIntroDocumentFromLS();
     dispatch(setDocument(document || introductionDoc));
-    dispatch(changeMode("intro"));
   };
 
   useEffect(() => {
